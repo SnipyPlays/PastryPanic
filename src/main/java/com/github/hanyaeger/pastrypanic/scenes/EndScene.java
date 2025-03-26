@@ -2,6 +2,7 @@ package com.github.hanyaeger.pastrypanic.scenes;
 
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.hanyaeger.pastrypanic.PastryPanic;
+import javafx.scene.paint.Color;
 
 public class EndScene extends StaticScene {
 
@@ -15,7 +16,7 @@ public class EndScene extends StaticScene {
 
     @Override
     public void setupScene() {
-
+        setBackgroundColor(Color.GREEN);
     }
 
     @Override
