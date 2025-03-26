@@ -11,29 +11,29 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class Button extends TextEntity implements MouseExitListener, MouseEnterListener, MouseButtonPressedListener {
+public abstract class Button extends TextEntity implements MouseExitListener, MouseEnterListener, MouseButtonPressedListener {
 
 
     public Button(Coordinate2D initialLocation, String text) {
         super(initialLocation, text);
-        setFill(Color.GRAY);
-        setFont(Font.font("Roboto", FontWeight.BOLD, 30));
+        setFill(Color.WHITE);
+        setFont(Font.font("Helvetica", FontWeight.BOLD, 70));
+        setStrokeColor(Color.BLACK);
+        setStrokeWidth(3);
     }
 
     @Override
-    public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-
-    }
+    public abstract void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D);
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.BLACK);
+        setFill(Color.GRAY);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.GRAY);
+        setFill(Color.WHITE);
         setCursor(Cursor.DEFAULT);
     }
 }
