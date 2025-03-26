@@ -6,4 +6,5 @@ module pastryPanic {
     opens audio;
     opens backgrounds;
     opens sprites;
+    opens fonts;
 }
