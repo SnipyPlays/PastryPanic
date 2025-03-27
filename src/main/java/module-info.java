@@ -1,5 +1,6 @@
 module pastryPanic {
     requires hanyaeger;
+    requires org.checkerframework.checker.qual;
 
     exports com.github.hanyaeger.pastrypanic;
 
