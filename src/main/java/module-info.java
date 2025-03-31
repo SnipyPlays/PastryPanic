@@ -8,4 +8,5 @@ module pastryPanic {
     opens backgrounds;
     opens sprites;
     opens fonts;
+    opens tilesets;
 }

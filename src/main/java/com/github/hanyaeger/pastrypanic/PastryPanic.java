@@ -2,7 +2,7 @@ package com.github.hanyaeger.pastrypanic;
 
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
-import com.github.hanyaeger.pastrypanic.items.ReceptenBoek;
+import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.scenes.EndScene;
 import com.github.hanyaeger.pastrypanic.scenes.EndlessMode;
 import com.github.hanyaeger.pastrypanic.scenes.MainGame;
@@ -17,9 +17,9 @@ public class PastryPanic extends YaegerGame {
     @Override
     public void setupGame() {
         setGameTitle("Pastry Panic");
-        setSize(new Size(1280, 720));
+        setSize(new Size(1280, 848));
 
-        ReceptenBoek receptenBoek = new ReceptenBoek();
+        ProductGenerator productGenerator = new ProductGenerator();
     }
 
     @Override

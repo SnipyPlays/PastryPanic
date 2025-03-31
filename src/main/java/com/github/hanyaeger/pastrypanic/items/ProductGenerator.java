@@ -4,7 +4,7 @@ import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 
 import java.util.ArrayList;
 
-public class ReceptenBoek {
+public class ProductGenerator {
 
     private StationGenerator stationGenerator = new StationGenerator();
     private IngredientGenerator ingredientGenerator = new IngredientGenerator();
@@ -15,7 +15,7 @@ public class ReceptenBoek {
     public ArrayList<Product> producten = new ArrayList<>();
     public Product errorProduct = new Product("error", "errorPath", errorRecept, 0);
 
-    public ReceptenBoek() {
+    public ProductGenerator() {
         
         //deeg
         ArrayList<Item> deeg = new ArrayList<>();
@@ -80,7 +80,7 @@ public class ReceptenBoek {
         ArrayList<Item> croissant = new ArrayList<>();
         croissant.add(getProduct("hard broodje"));
         recepten.add(new Recept(stationGenerator.getStation("baguettematic"), croissant, "croissant"));
-        producten.add(new Product("croissant", "croissantPath", getRecept("croissant"), 2));
+        producten.add(new Product("croissant", "sprites/croissant.png", getRecept("croissant"), 2));
 
         //baguette
         ArrayList<Item> baguette = new ArrayList<>();
@@ -175,5 +175,12 @@ public class ReceptenBoek {
             }
         }
         return ingredientGenerator.getIngredient("error");
-    } 
+    }
+
+    public Product createProduct(String naam) {
+        String path = "sprites/" + naam + ".png";
+        Product product = new Product(naam, path, getRecept(naam), 1);
+
+        return product;
+    }
 }
