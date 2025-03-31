@@ -18,4 +18,7 @@ public class Toonbank extends RectangleEntity implements Collider {
         super.setFill(fill);
     }
 
+
+
+
 }
