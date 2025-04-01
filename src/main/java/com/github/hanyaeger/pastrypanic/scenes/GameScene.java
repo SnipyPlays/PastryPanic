@@ -37,12 +37,12 @@ public class GameScene extends DynamicScene {
         addEntity(toonbank2);
         addEntity(toonbank3);
 
-        var croissant = productGenerator.createProduct("croissant");
+        var croissant = productGenerator.createProduct("apple");
         addEntity(croissant);
 
         croissant.move();
 
-        var croissant2 = productGenerator.getProduct("croissant");
+        var croissant2 = productGenerator.getProduct("broodje");
         addEntity(croissant2);
 
 
