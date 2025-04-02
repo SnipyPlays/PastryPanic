@@ -1,7 +1,12 @@
 package com.github.hanyaeger.pastrypanic.stations;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.pastrypanic.PastryPanic;
+import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
+import com.github.hanyaeger.pastrypanic.scenes.GameScene;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
+import com.github.hanyaeger.pastrypanic.stations.UI.StationInterface;
+import com.github.hanyaeger.pastrypanic.stations.UI.TableInterface;
 
 public class Table extends Station {
 
@@ -11,7 +16,8 @@ public class Table extends Station {
     }
 
     @Override
-    public void doStationAction() {
+    public void doStationAction(GameScene game, Speler speler) {
         System.out.println("tafel");
+        game.spawnInterface(new TableInterface(new Coordinate2D(70, 32)));
     }
 }

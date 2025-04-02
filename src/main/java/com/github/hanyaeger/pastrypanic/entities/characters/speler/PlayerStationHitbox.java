@@ -18,6 +18,7 @@ public class PlayerStationHitbox extends RectangleEntity implements Collided {
         super(initialLocation);
         this.setWidth(5);
         this.setHeight(5);
+        this.setVisible(false);
     }
 
     @Override

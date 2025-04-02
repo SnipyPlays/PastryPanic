@@ -1,4 +1,4 @@
-package com.github.hanyaeger.pastrypanic.stations;
+package com.github.hanyaeger.pastrypanic;
 
 public interface IBlocker {
 

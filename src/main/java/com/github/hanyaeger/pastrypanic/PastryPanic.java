@@ -3,10 +3,7 @@ package com.github.hanyaeger.pastrypanic;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
-import com.github.hanyaeger.pastrypanic.scenes.EndScene;
-import com.github.hanyaeger.pastrypanic.scenes.EndlessMode;
-import com.github.hanyaeger.pastrypanic.scenes.MainGame;
-import com.github.hanyaeger.pastrypanic.scenes.MainMenu;
+import com.github.hanyaeger.pastrypanic.scenes.*;
 
 public class PastryPanic extends YaegerGame {
 
@@ -24,8 +21,8 @@ public class PastryPanic extends YaegerGame {
 
     @Override
     public void setupScenes() {
-        addScene(0, new MainMenu(this));
-        addScene(1, new MainGame(this));
+        addScene(0, new GameScene(this));
+        addScene(1, new MainMenu(this));
         addScene(2, new EndlessMode(this));
         addScene(3, new EndScene(this));
     }

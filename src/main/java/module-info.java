@@ -3,6 +3,7 @@ module pastryPanic {
     requires org.checkerframework.checker.qual;
     requires jdk.xml.dom;
     requires java.desktop;
+    requires java.management;
 
     exports com.github.hanyaeger.pastrypanic;
 

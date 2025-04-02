@@ -2,6 +2,9 @@ package com.github.hanyaeger.pastrypanic.stations.Station;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
+import com.github.hanyaeger.pastrypanic.PastryPanic;
+import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
+import com.github.hanyaeger.pastrypanic.scenes.GameScene;
 
 public abstract class Station  extends DynamicCompositeEntity {
 
@@ -32,7 +35,7 @@ public abstract class Station  extends DynamicCompositeEntity {
         addEntity(stationBounding);
     }
 
-    public abstract void doStationAction();
+    public abstract void doStationAction(GameScene game, Speler speler);
 
     public String getNaam() {
         return naam;

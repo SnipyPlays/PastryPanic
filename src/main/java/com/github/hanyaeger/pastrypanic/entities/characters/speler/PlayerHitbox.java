@@ -8,5 +8,6 @@ public class PlayerHitbox extends RectangleEntity implements Collider {
 
     protected PlayerHitbox(Coordinate2D initialLocation) {
         super(initialLocation);
+        this.setVisible(false);
     }
 }

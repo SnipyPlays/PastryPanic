@@ -4,12 +4,15 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.pastrypanic.entities.characters.klant.Klant;
+import com.github.hanyaeger.pastrypanic.PastryPanic;
 import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
 import com.github.hanyaeger.pastrypanic.items.Product;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 import com.github.hanyaeger.pastrypanic.stations.CollisionMuur;
+import com.github.hanyaeger.pastrypanic.stations.UI.StationInterface;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,8 +20,14 @@ import java.util.Random;
 public class GameScene extends DynamicScene {
     public int dayCounter = 1;
 
+    PastryPanic game;
+
     ProductGenerator productGenerator = new ProductGenerator();
     StationGenerator stationGenerator = new StationGenerator();
+
+    public GameScene(PastryPanic game) {
+        this.game = game;
+    }
 
     @Override
     public void setupScene() {
@@ -36,7 +45,7 @@ public class GameScene extends DynamicScene {
 //        addEntity(oven);
 
         //bakker maken en toevoeging
-        var speler = new Speler("items/bakkerman.png", new Coordinate2D(100, 200));
+        var speler = new Speler("items/bakkertje.png", new Coordinate2D(100, 200), this.game, this);
         addEntity(speler);
 
         //collisionMuur delen maken
@@ -79,17 +88,9 @@ public class GameScene extends DynamicScene {
             addEntity(klant);
         }
 
-        //testitems
-        var croissant = productGenerator.createProduct("apple");
-        addEntity(croissant);
+    }
 
-        croissant.move();
-
-        var croissant2 = productGenerator.getProduct("broodje");
-        addEntity(croissant2);
-
-
-
-
+    public void spawnInterface(StationInterface stationInterface) {
+        addEntity(stationInterface);
     }
 }
