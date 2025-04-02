@@ -39,14 +39,14 @@ public class ProductGenerator {
         muffin.add(getTussenIngredient("deeg"));
         muffin.add(ingredientGenerator.getIngredient("suiker"));
         recepten.add(new Recept(stationGenerator.getStation("oven"), muffin, "muffin"));
-        producten.add(new Product("muffin", "muffinPath", getRecept("muffin"), 1));
+        producten.add(new Product("muffin", "items/muffin.png", getRecept("muffin"), 1));
 
         //wafel
         ArrayList<Item> wafel = new ArrayList<>();
         wafel.add(getTussenIngredient("deeg"));
         wafel.add(ingredientGenerator.getIngredient("suiker"));
         recepten.add(new Recept(stationGenerator.getStation("wafelijzer"), wafel, "wafel"));
-        producten.add(new Product("wafel", "wafelPath", getRecept("wafel"), 1));
+        producten.add(new Product("wafel", "items/wafel.png", getRecept("wafel"), 1));
 
         //hard broodje
         ArrayList<Item> broodje = new ArrayList<>();
@@ -168,6 +168,10 @@ public class ProductGenerator {
         return errorProduct;
     }
 
+    public ArrayList<Product> getProducten() {
+        return producten;
+    }
+
     public Ingredient getTussenIngredient(String naam) {
         for (Recept recept : tussenIngredients) {
             if (naam == recept.naam) {
@@ -180,7 +184,6 @@ public class ProductGenerator {
     public Product createProduct(String naam) {
         String path = "items/" + naam + ".png";
         Product product = new Product(naam, path, getRecept(naam), 1);
-
         return product;
     }
 }

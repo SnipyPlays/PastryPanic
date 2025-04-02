@@ -3,15 +3,19 @@ package com.github.hanyaeger.pastrypanic.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
-import com.github.hanyaeger.pastrypanic.entities.characters.Klant;
+import com.github.hanyaeger.pastrypanic.entities.characters.klant.Klant;
 import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
+import com.github.hanyaeger.pastrypanic.items.Product;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 import com.github.hanyaeger.pastrypanic.stations.CollisionMuur;
-import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GameScene extends DynamicScene {
+    public int dayCounter = 1;
 
     ProductGenerator productGenerator = new ProductGenerator();
     StationGenerator stationGenerator = new StationGenerator();
@@ -51,12 +55,27 @@ public class GameScene extends DynamicScene {
         addEntity(collisionMuurTop);
 
         //klanten
+
+        ArrayList<Product> producten  = productGenerator.getProducten();
+        ArrayList<Product> dayProducts = new ArrayList<>();
+        for (Product product : producten) {
+            if(dayCounter >= product.getUnlockDay()){
+                dayProducts.add(product);
+            }
+        }
+
          Klant[] klanten = new Klant[8];
+        Random rand = new Random();
          for(int i = 0; i < klanten.length; i++){
-             klanten[i] = new Klant(new Coordinate2D(160+i*128, getHeight() - Klant.getStaticRadius() * 4));
+             klanten[i] = new Klant(new Coordinate2D(160+i*128, getHeight()/2- Klant.getStaticRadius() * 4),
+                     dayProducts.get(rand.nextInt(dayProducts.size())),
+                     true);
          }
+
         for (Klant klant : klanten) {
-            klant.setFill(Color.GREEN);
+            klant.sethappiness(rand.nextInt(4));
+            klant.klantHappiness();
+            System.out.println(klant.getWantsProduct().naam);
             addEntity(klant);
         }
 

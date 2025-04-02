@@ -73,7 +73,9 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
             }
         } else {
             setSpeed(0);
-            playerStationHitbox.resetCollisionList();
+            if(playerStationHitbox.getCollisionList() != null) {
+                playerStationHitbox.resetCollisionList();
+            }
         }
     }
 
