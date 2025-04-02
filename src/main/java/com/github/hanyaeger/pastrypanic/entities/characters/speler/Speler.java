@@ -65,13 +65,15 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
             for (Collider c : playerStationHitbox.getCollisionList()) {
                 if (c instanceof StationBounding s) {
                     Station station = s.getStation();
-                    System.out.println(station.getNaam());
+                    station.doStationAction();
+                    break;
                 } else {
                     System.out.println(c);
                 }
             }
         } else {
             setSpeed(0);
+            playerStationHitbox.resetCollisionList();
         }
     }
 

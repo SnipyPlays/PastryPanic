@@ -29,4 +29,8 @@ public class PlayerStationHitbox extends RectangleEntity implements Collided {
         return collisionList;
     }
 
+    public void resetCollisionList() {
+        collisionList.clear();
+    }
+
 }

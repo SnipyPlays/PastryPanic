@@ -3,7 +3,7 @@ package com.github.hanyaeger.pastrypanic.stations.Station;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
-public class Station  extends DynamicCompositeEntity {
+public abstract class Station  extends DynamicCompositeEntity {
 
     private String naam;
     StationSprite sprite;
@@ -31,6 +31,8 @@ public class Station  extends DynamicCompositeEntity {
         addEntity(stationHitbox);
         addEntity(stationBounding);
     }
+
+    public abstract void doStationAction();
 
     public String getNaam() {
         return naam;

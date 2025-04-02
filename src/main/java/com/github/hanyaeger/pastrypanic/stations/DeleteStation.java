@@ -8,4 +8,9 @@ public class DeleteStation extends Station {
     public DeleteStation(String resource, Coordinate2D initialLocation, String naam) {
         super(resource, initialLocation, naam);
     }
+
+    @Override
+    public void doStationAction() {
+        System.out.println("delete");
+    }
 }

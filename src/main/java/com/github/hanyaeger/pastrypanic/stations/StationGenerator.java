@@ -2,14 +2,13 @@ package com.github.hanyaeger.pastrypanic.stations;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 
 public class StationGenerator {
 
     ArrayList<Station> stations = new ArrayList<>();
-    Station errorStation = new Station("error", new Coordinate2D(0, 0), "error");
+    Station errorStation = new CraftingStation("error", new Coordinate2D(0, 0), "error");
 
     public StationGenerator() {
         Station oven = new CraftingStation("stations/oven.png", new Coordinate2D(64,80), "oven");

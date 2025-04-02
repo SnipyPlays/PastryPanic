@@ -7,4 +7,9 @@ public class OrderStation extends Station {
     protected OrderStation(String resource, Coordinate2D initialLocation, String naam) {
         super(resource, initialLocation, naam);
     }
+
+    @Override
+    public void doStationAction() {
+        System.out.println("order");
+    }
 }

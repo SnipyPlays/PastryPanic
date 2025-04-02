@@ -9,4 +9,9 @@ public class GiveStation extends Station {
         super(resource, initialLocation, naam);
 
     }
+
+    @Override
+    public void doStationAction() {
+        System.out.println("give");
+    }
 }

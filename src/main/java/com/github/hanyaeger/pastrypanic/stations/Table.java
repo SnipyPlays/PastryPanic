@@ -9,4 +9,9 @@ public class Table extends Station {
         super(resource, initialLocation, naam);
 
     }
+
+    @Override
+    public void doStationAction() {
+        System.out.println("tafel");
+    }
 }
