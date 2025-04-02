@@ -27,8 +27,8 @@ public class Speler extends Character implements KeyListener, SceneBorderTouchin
             lastkey = KeyCode.RIGHT;
             setMotion(3, 90d);
         } else if (pressedKeys.contains(KeyCode.UP)) {
-            lastkey = KeyCode.UP;
-            setMotion(3, 180d);
+                lastkey = KeyCode.UP;
+                setMotion(3, 180d);
         } else if (pressedKeys.contains(KeyCode.DOWN)) {
             lastkey = KeyCode.DOWN;
             setMotion(3, 0d);
