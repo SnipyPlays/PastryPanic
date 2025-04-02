@@ -6,7 +6,8 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.RectangleEntity;
 import javafx.scene.paint.Color;
 
-public class CollisionMuur extends RectangleEntity implements Collider {
+public class CollisionMuur extends RectangleEntity implements Collider, IBlocker {
+
     public CollisionMuur(Coordinate2D initialLocation, Size size) {
         super(initialLocation, size);
     }
@@ -17,6 +18,8 @@ public class CollisionMuur extends RectangleEntity implements Collider {
     }
 
 
-
+    public boolean getCollision() {
+        return true;
+    }
 
 }

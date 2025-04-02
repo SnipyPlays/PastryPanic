@@ -4,16 +4,12 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.pastrypanic.entities.characters.Klant;
-import com.github.hanyaeger.pastrypanic.entities.characters.Speler;
+import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 import com.github.hanyaeger.pastrypanic.stations.CollisionMuur;
 import javafx.scene.paint.Color;
-import org.checkerframework.checker.units.qual.C;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class GameScene extends DynamicScene {
 
@@ -36,7 +32,7 @@ public class GameScene extends DynamicScene {
 //        addEntity(oven);
 
         //bakker maken en toevoeging
-        var speler = new Speler("items/bakkerman.png", new Coordinate2D(getWidth() / 2, getHeight() / 4));
+        var speler = new Speler("items/bakkerman.png", new Coordinate2D(100, 200));
         addEntity(speler);
 
         //collisionMuur delen maken
@@ -54,7 +50,7 @@ public class GameScene extends DynamicScene {
         addEntity(collisionMuurDownRight);
         addEntity(collisionMuurTop);
 
-//        //klanten
+        //klanten
          Klant[] klanten = new Klant[8];
          for(int i = 0; i < klanten.length; i++){
              klanten[i] = new Klant(new Coordinate2D(160+i*128, getHeight() - Klant.getStaticRadius() * 4));
@@ -72,6 +68,8 @@ public class GameScene extends DynamicScene {
 
         var croissant2 = productGenerator.getProduct("broodje");
         addEntity(croissant2);
+
+
 
 
     }

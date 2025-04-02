@@ -3,20 +3,22 @@ package com.github.hanyaeger.pastrypanic.stations.Station;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.RectangleEntity;
-import com.github.hanyaeger.pastrypanic.stations.IBlocker;
 import javafx.scene.paint.Color;
 
-public class StationHitbox extends RectangleEntity implements Collider, IBlocker {
+public class StationBounding extends RectangleEntity implements Collider {
 
-    public StationHitbox(final Coordinate2D initialPosition) {
+    Station station;
 
-        super(initialPosition);
+    protected StationBounding(Coordinate2D initialLocation, Station station) {
+        super(initialLocation);
+        this.station = station;
+
         setWidth(128);
-        setHeight(10);
+        setHeight(128);
         setFill(Color.TRANSPARENT);
     }
 
-    public boolean getCollision() {
-        return true;
+    public Station getStation() {
+        return station;
     }
 }
