@@ -23,8 +23,8 @@ constructor, we can change this.
 look like:
 
 ```java
-public Hanny(Coordinate2D location){
-    super("sprites/hanny.png", location, new Size(20, 40), 1, 2);
+public Hanny(Coordinate2D location) {
+    super("items/hanny.png", location, new Size(20, 40), 1, 2);
 }
 ```
 

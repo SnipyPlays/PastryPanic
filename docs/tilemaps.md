@@ -69,12 +69,13 @@ contains the url of the coral image.
 ![Edit](images/edit.png) Implement the method `setupEntities()` as shown below.
 
 ```java
+
 @Override
 public void setupEntities() {
-    addEntity(1, Coral.class, "sprites/coral1.png");
-    addEntity(2, Coral.class, "sprites/coral2.png");
-    addEntity(3, Coral.class, "sprites/coral3.png");
-    addEntity(4, Coral.class, "sprites/coral4.png");
+    addEntity(1, Coral.class, "items/coral1.png");
+    addEntity(2, Coral.class, "items/coral2.png");
+    addEntity(3, Coral.class, "items/coral3.png");
+    addEntity(4, Coral.class, "items/coral4.png");
 }
 ```
 

@@ -39,7 +39,7 @@ the image of the swordfish, and a `RectangleEntity` that will implement
 public class SwordfishSprite extends SpriteEntity {
 
     public SwordfishSprite(final Coordinate2D location) {
-        super("sprites/swordfish.png", location);
+        super("items/swordfish.png", location);
     }
 }
 ```

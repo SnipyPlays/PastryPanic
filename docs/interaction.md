@@ -103,8 +103,8 @@ constructor and instance fields of Hanny should look like:
 private HealthText healthText;
 private int health = 10;
 
-public Hanny(Coordinate2D location, HealthText healthText){
-    super("sprites/hanny.png", location, new Size(20,40), 2);
+public Hanny(Coordinate2D location, HealthText healthText) {
+    super("items/hanny.png", location, new Size(20, 40), 2);
 
     this.healthText = healthText;
     healthText.setHealthText(health);

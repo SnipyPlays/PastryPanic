@@ -4,15 +4,15 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.pastrypanic.entities.characters.Speler;
-import com.github.hanyaeger.pastrypanic.items.Item;
-import com.github.hanyaeger.pastrypanic.items.Product;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
+import com.github.hanyaeger.pastrypanic.stations.Station;
+import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 import com.github.hanyaeger.pastrypanic.stations.Toonbank;
-import javafx.scene.paint.Color;
 
 public class GameScene extends DynamicScene {
 
     ProductGenerator productGenerator = new ProductGenerator();
+    StationGenerator stationGenerator = new StationGenerator();
 
     @Override
     public void setupScene() {
@@ -21,8 +21,16 @@ public class GameScene extends DynamicScene {
 
     @Override
     public void setupEntities() {
+
+        //render stations
+        for (Station station : stationGenerator.getStations()) {
+            addEntity(station);
+        }
+//        var oven = stationGenerator.getStation("oven");
+//        addEntity(oven);
+
         //bakker maken en toevoeging
-        var speler = new Speler("sprites/bakkerman.png", new Coordinate2D(getWidth()/2, getHeight()/4));
+        var speler = new Speler("items/bakkerman.png", new Coordinate2D(getWidth()/2, getHeight()/4));
         addEntity(speler);
 
         //toonbank delen maken
@@ -44,6 +52,7 @@ public class GameScene extends DynamicScene {
 
         var croissant2 = productGenerator.getProduct("broodje");
         addEntity(croissant2);
+
 
 
     }

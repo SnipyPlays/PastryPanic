@@ -6,7 +6,7 @@ module pastryPanic {
 
     opens audio;
     opens backgrounds;
-    opens sprites;
+    opens items;
     opens fonts;
-    opens tilesets;
+    opens stations;
 }

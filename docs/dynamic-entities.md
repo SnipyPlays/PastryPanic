@@ -13,8 +13,8 @@ swordfish is already of the correct size, we don't need to set its size through
 the constructor, which can now look like:
 
 ```java
-public Swordfish(Coordinate2D location){
-    super("sprites/swordfish.png", location);
+public Swordfish(Coordinate2D location) {
+    super("items/swordfish.png", location);
 }
 ```
 
