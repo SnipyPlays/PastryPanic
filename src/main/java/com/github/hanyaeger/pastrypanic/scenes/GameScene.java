@@ -4,12 +4,9 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.pastrypanic.entities.characters.Speler;
-import com.github.hanyaeger.pastrypanic.items.Item;
-import com.github.hanyaeger.pastrypanic.items.Product;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
-import com.github.hanyaeger.pastrypanic.stations.Station;
+import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
-//import com.github.hanyaeger.pastrypanic.stations.Toonbank;
 import com.github.hanyaeger.pastrypanic.stations.CollisionMuur;
 
 public class GameScene extends DynamicScene {
@@ -33,7 +30,7 @@ public class GameScene extends DynamicScene {
 //        addEntity(oven);
 
         //bakker maken en toevoeging
-        var speler = new Speler("sprites/bakkerman.png", new Coordinate2D(getWidth()/2, getHeight()/4));
+        var speler = new Speler("items/bakkerman.png", new Coordinate2D(getWidth()/2, getHeight()/4));
         addEntity(speler);
 
         //collisionMuur delen maken

@@ -1,6 +1,7 @@
 package com.github.hanyaeger.pastrypanic.stations;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class StationGenerator {
 
     public Station getStation(String stationsNaam) {
         for (Station station : stations) {
-            if (stationsNaam == station.naam) {
+            if (stationsNaam == station.getNaam()) {
                 return station;
             }
         }

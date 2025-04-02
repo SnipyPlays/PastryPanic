@@ -1,6 +1,6 @@
 package com.github.hanyaeger.pastrypanic.items;
 
-import com.github.hanyaeger.pastrypanic.stations.Station;
+import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 
 import java.util.ArrayList;
 
