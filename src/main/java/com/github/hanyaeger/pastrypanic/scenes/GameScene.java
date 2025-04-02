@@ -3,11 +3,17 @@ package com.github.hanyaeger.pastrypanic.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.hanyaeger.pastrypanic.entities.characters.Klant;
 import com.github.hanyaeger.pastrypanic.entities.characters.Speler;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 import com.github.hanyaeger.pastrypanic.stations.CollisionMuur;
+import javafx.scene.paint.Color;
+import org.checkerframework.checker.units.qual.C;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class GameScene extends DynamicScene {
 
@@ -30,17 +36,17 @@ public class GameScene extends DynamicScene {
 //        addEntity(oven);
 
         //bakker maken en toevoeging
-        var speler = new Speler("items/bakkerman.png", new Coordinate2D(getWidth()/2, getHeight()/4));
+        var speler = new Speler("items/bakkerman.png", new Coordinate2D(getWidth() / 2, getHeight() / 4));
         addEntity(speler);
 
         //collisionMuur delen maken
-        var collisionMuurDown = new CollisionMuur(new Coordinate2D(0, getHeight()*0.70), new Size(getWidth(), 120));
+        var collisionMuurDown = new CollisionMuur(new Coordinate2D(0, getHeight() * 0.70), new Size(getWidth(), 120));
         collisionMuurDown.setVisible(false);
-        var collisionMuurDownLeft= new CollisionMuur(new Coordinate2D(0, getHeight()*0.55), new Size(getWidth()/11, 130));
+        var collisionMuurDownLeft = new CollisionMuur(new Coordinate2D(0, getHeight() * 0.55), new Size(getWidth() / 11, 130));
         collisionMuurDownLeft.setVisible(false);
-        var collisionMuurDownRight = new CollisionMuur(new Coordinate2D(getWidth()*0.91, getHeight()*0.55), new Size(getWidth()/11, 130));
+        var collisionMuurDownRight = new CollisionMuur(new Coordinate2D(getWidth() * 0.91, getHeight() * 0.55), new Size(getWidth() / 11, 130));
         collisionMuurDownRight.setVisible(false);
-        var collisionMuurTop = new CollisionMuur(new Coordinate2D(0, getHeight()/11), new Size(getWidth(), getHeight()/10));
+        var collisionMuurTop = new CollisionMuur(new Coordinate2D(0, getHeight() / 11), new Size(getWidth(), getHeight() / 10));
         collisionMuurTop.setVisible(false);
         //collisionMuur adds
         addEntity(collisionMuurDown);
@@ -48,6 +54,17 @@ public class GameScene extends DynamicScene {
         addEntity(collisionMuurDownRight);
         addEntity(collisionMuurTop);
 
+//        //klanten
+         Klant[] klanten = new Klant[8];
+         for(int i = 0; i < klanten.length; i++){
+             klanten[i] = new Klant(new Coordinate2D(160+i*128, getHeight() - Klant.getStaticRadius() * 4));
+         }
+        for (Klant klant : klanten) {
+            klant.setFill(Color.GREEN);
+            addEntity(klant);
+        }
+
+        //testitems
         var croissant = productGenerator.createProduct("apple");
         addEntity(croissant);
 
