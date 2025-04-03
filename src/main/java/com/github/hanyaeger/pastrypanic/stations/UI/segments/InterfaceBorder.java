@@ -1,4 +1,4 @@
-package com.github.hanyaeger.pastrypanic.stations.UI;
+package com.github.hanyaeger.pastrypanic.stations.UI.segments;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 
 public class InterfaceBorder extends RectangleEntity {
 
-    protected InterfaceBorder(Coordinate2D initialLocation, Size size) {
+    public InterfaceBorder(Coordinate2D initialLocation, Size size) {
         super(initialLocation);
 
         this.setWidth(size.width());

@@ -16,7 +16,7 @@ public class IngredientGenerator {
         ingredients.add(new Ingredient("kaas", "kaasPath"));
         ingredients.add(new Ingredient("chocola", "chocolaPath"));
         ingredients.add(new Ingredient("appel", "appelPath"));
-        ingredients.add(new Ingredient("water", "waterPath"));
+        ingredients.add(new Ingredient("water", "items/water.png"));
         ingredients.add(new Ingredient("kruiden", "kruidenPath"));
 
         ingredients.add(new Ingredient("deeg", "deegPath"));
@@ -31,6 +31,11 @@ public class IngredientGenerator {
             }
         }
         return errorIngredient;
+    }
+
+    public Ingredient createIngredient(String naam) {
+        String path = "items/" + naam + ".png";
+        return new Ingredient(naam, path);
     }
 
 }

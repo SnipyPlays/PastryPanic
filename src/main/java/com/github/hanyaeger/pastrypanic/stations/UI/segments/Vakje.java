@@ -1,4 +1,4 @@
-package com.github.hanyaeger.pastrypanic.stations.UI;
+package com.github.hanyaeger.pastrypanic.stations.UI.segments;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.RectangleEntity;

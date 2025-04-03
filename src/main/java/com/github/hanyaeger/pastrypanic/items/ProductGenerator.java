@@ -1,5 +1,6 @@
 package com.github.hanyaeger.pastrypanic.items;
 
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class ProductGenerator {
     public Product errorProduct = new Product("error", "errorPath", errorRecept, 0);
 
     public ProductGenerator() {
-        
+
         //deeg
         ArrayList<Item> deeg = new ArrayList<>();
         deeg.add(ingredientGenerator.getIngredient("bloem"));
@@ -184,6 +185,12 @@ public class ProductGenerator {
     public Product createProduct(String naam) {
         String path = "items/" + naam + ".png";
         Product product = new Product(naam, path, getRecept(naam), 1);
+        return product;
+    }
+
+    public Product createProduct(String naam, Size size) {
+        String path = "items/" + naam + ".png";
+        Product product = new Product(naam, path, getRecept(naam), 1, size);
         return product;
     }
 }

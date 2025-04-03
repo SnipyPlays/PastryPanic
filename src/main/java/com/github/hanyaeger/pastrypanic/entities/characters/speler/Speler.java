@@ -1,16 +1,13 @@
 package com.github.hanyaeger.pastrypanic.entities.characters.speler;
 
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.Collided;
-import com.github.hanyaeger.api.entities.Collider;
-import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
-import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
+import com.github.hanyaeger.api.UpdateExposer;
+import com.github.hanyaeger.api.entities.*;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.hanyaeger.pastrypanic.PastryPanic;
 import com.github.hanyaeger.pastrypanic.IBlocker;
 import com.github.hanyaeger.pastrypanic.items.Item;
-import com.github.hanyaeger.pastrypanic.items.Product;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.scenes.GameScene;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
@@ -21,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Speler extends DynamicCompositeEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
+public class Speler extends DynamicCompositeEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, UpdateExposer {
     private KeyCode lastkey;
 
     private PlayerSprite playerSprite;
@@ -56,18 +53,15 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
 
         this.playerStationHitbox = new PlayerStationHitbox(newLocation);
 
-        this.itemLinks = productGenerator.createProduct("croissant");
+        this.itemLinks = productGenerator.createProduct("apple");
         this.itemLinks.setAnchorLocationX(100);
         this.itemLinks.setAnchorLocationY(240);
 
-        this.itemRechts = productGenerator.createProduct("baguette");
+        this.itemRechts = productGenerator.createProduct("muffin");
         this.itemRechts.setAnchorLocationX(170);
         this.itemRechts.setAnchorLocationY(240);
 
-
-
         this.playerSpeed = 5;
-        System.out.println("speler gemaakt");
     }
 
     @Override
@@ -75,8 +69,12 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
         addEntity(playerSprite);
         addEntity(playerHitbox);
         addEntity(playerStationHitbox);
-        addEntity(itemLinks);
-        addEntity(itemRechts);
+        if (itemLinks != null) {
+            addEntity(itemLinks);
+        }
+        if (itemRechts != null) {
+            addEntity(itemRechts);
+        }
     }
 
     @Override
@@ -93,9 +91,11 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
         } else if (pressedKeys.contains(KeyCode.DOWN) || pressedKeys.contains(KeyCode.S) && !interfaceOpen) {
             lastkey = KeyCode.DOWN;
             setMotion(playerSpeed, 0d);
+
+
         } else if (pressedKeys.contains(KeyCode.F)) {
             for (Collider c : playerStationHitbox.getCollisionList()) {
-                if (c instanceof StationBounding s) {
+                if (c instanceof StationBounding s && !interfaceOpen) {
                     Station station = s.getStation();
                     interfaceOpen = true;
                     station.doStationAction(gameScene, this); //POLYMORFIE LETS GOOOOO
@@ -104,7 +104,11 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
                     System.out.println(c);
                 }
             }
-        } else {
+        } else if (pressedKeys.contains(KeyCode.ESCAPE) && interfaceOpen) {
+            gameScene.removeInterface();
+            interfaceOpen = false;
+
+        }else {
             setSpeed(0);
             if(playerStationHitbox.getCollisionList() != null) {
                 playerStationHitbox.resetCollisionList();
@@ -123,6 +127,39 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
                 setAnchorLocationX(getSceneWidth() - getWidth() - 100);
             default:
                 break;
+        }
+    }
+
+    public Item getItem(int slot) {
+        if (slot == 0) {
+            return this.itemLinks;
+        } else if (slot == 1) {
+            return this.itemRechts;
+        }
+        return null;
+    }
+
+    public void removeItem(int slot) {
+        if (slot == 0) {
+            this.itemLinks = null;
+        } else {
+            this.itemRechts = null;
+        }
+    }
+
+    public void setItemLinks(Item item) {
+
+        if (item != null) {
+            this.itemLinks = productGenerator.createProduct(item.naam);
+            this.addEntity(this.itemLinks);
+        }
+
+    }
+
+    public void setItemRechts(Item item) {
+        if (item != null) {
+            this.itemRechts = productGenerator.createProduct(item.naam);
+            addEntity(this.itemRechts);
         }
     }
 
@@ -153,5 +190,24 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
             }
         }
 
+    }
+
+    @Override
+    public void explicitUpdate(long l) {
+        if (this.itemLinks != null) {
+            System.out.println(this.itemLinks.naam);
+        } else {
+            System.out.println("null");
+        }
+        reloadItems();
+    }
+
+    public void reloadItems() {
+        if (itemLinks != null) {
+            addEntity(itemLinks);
+        }
+        if (itemRechts != null) {
+            addEntity(itemRechts);
+        }
     }
 }

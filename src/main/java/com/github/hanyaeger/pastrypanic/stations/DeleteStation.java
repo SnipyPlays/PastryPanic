@@ -5,6 +5,7 @@ import com.github.hanyaeger.pastrypanic.PastryPanic;
 import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
 import com.github.hanyaeger.pastrypanic.scenes.GameScene;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
+import com.github.hanyaeger.pastrypanic.stations.UI.PrullenbakInterface;
 
 public class DeleteStation extends Station {
 
@@ -14,6 +15,6 @@ public class DeleteStation extends Station {
 
     @Override
     public void doStationAction(GameScene game, Speler speler) {
-        System.out.println("delete");
+        game.spawnInterface(new PrullenbakInterface(new Coordinate2D(70, 32), speler, game, this));
     }
 }

@@ -2,6 +2,7 @@ package com.github.hanyaeger.pastrypanic.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.pastrypanic.entities.characters.klant.Klant;
 import com.github.hanyaeger.pastrypanic.PastryPanic;
@@ -24,6 +25,8 @@ public class GameScene extends DynamicScene {
 
     ProductGenerator productGenerator = new ProductGenerator();
     StationGenerator stationGenerator = new StationGenerator();
+
+    StationInterface currentInterface;
 
     public GameScene(PastryPanic game) {
         this.game = game;
@@ -93,6 +96,12 @@ public class GameScene extends DynamicScene {
     }
 
     public void spawnInterface(StationInterface stationInterface) {
-        addEntity(stationInterface);
+        currentInterface = stationInterface;
+        addEntity(currentInterface);
+    }
+
+    public void removeInterface() {
+        currentInterface.remove();
+
     }
 }

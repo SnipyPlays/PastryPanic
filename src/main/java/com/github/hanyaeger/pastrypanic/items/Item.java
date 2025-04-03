@@ -17,4 +17,10 @@ public class Item extends DynamicSpriteEntity {
         this.texturePath = texturePath;
     }
 
+    public Item(String naam, String texturePath, Size size) {
+        super(texturePath, new Coordinate2D(0, 0), size);
+        this.naam = naam;
+        this.texturePath = texturePath;
+    }
+
 }

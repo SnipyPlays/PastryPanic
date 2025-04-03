@@ -13,18 +13,33 @@ public class StationGenerator {
     public StationGenerator() {
         Station oven = new CraftingStation("stations/oven.png", new Coordinate2D(64,80), "oven");
         stations.add(oven);
+
         Station wafelijzer = new CraftingStation("stations/wafelijzer.png", new Coordinate2D(128, 80), "wafelijzer");
         stations.add(wafelijzer);
+
         Station baguettematic = new CraftingStation("stations/baguettematic.png", new Coordinate2D(192, 80), "baguettematic");
         stations.add(baguettematic);
+
         Station crafter = new CraftingStation("stations/crafter.png", new Coordinate2D(256, 80), "crafter");
         stations.add(crafter);
+
         Station roller = new CraftingStation("stations/roller.png", new Coordinate2D(320, 80), "roller");
         stations.add(roller);
-        Station spicerack = new GiveStation("stations/spicerack.png", new Coordinate2D(384, 80), "spicerack");
+
+        Station spicerack = new GiveStation("stations/spicerack.png", new Coordinate2D(384, 80), "spicerack", 3);
+        spicerack.addToItemList("water");
+        spicerack.addToItemList("sugar");
+        spicerack.addToItemList("kruiden");
         stations.add(spicerack);
-        Station orderTable = new OrderStation("stations/besteltafel.png", new Coordinate2D(448, 80), "orderTable");
+
+        Station orderTable = new GiveStation("stations/besteltafel.png", new Coordinate2D(448, 80), "orderTable", 5);
+        orderTable.addToItemList("bloem");
+        orderTable.addToItemList("vlees");
+        orderTable.addToItemList("kaas");
+        orderTable.addToItemList("chocolade");
+        orderTable.addToItemList("apple");
         stations.add(orderTable);
+
         Station tafel1 = new Table("stations/tafel.png", new Coordinate2D(192, 160), "tafel1");
         stations.add(tafel1);
         Station tafel2 = new Table("stations/tafel.png", new Coordinate2D(384, 160), "tafel2");

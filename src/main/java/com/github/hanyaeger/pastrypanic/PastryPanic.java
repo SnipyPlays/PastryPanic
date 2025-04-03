@@ -15,8 +15,6 @@ public class PastryPanic extends YaegerGame {
     public void setupGame() {
         setGameTitle("Pastry Panic");
         setSize(new Size(1280, 848));
-
-        ProductGenerator productGenerator = new ProductGenerator();
     }
 
     @Override
