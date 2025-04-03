@@ -1,13 +1,16 @@
 package com.github.hanyaeger.pastrypanic.entities.characters.klant;
 
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.impl.CircleEntity;
 import com.github.hanyaeger.api.entities.impl.DynamicCircleEntity;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 public class KlantCircle extends DynamicCircleEntity {
-    private final static int Radius = 32;
+    private static final int Radius = 32;
+
+
+    public static int getfinalRadius(){
+        return Radius;
+    }
 
     public void setHappiness(int happiness) {
         this.happiness = happiness;

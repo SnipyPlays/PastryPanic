@@ -2,12 +2,9 @@ package com.github.hanyaeger.pastrypanic.entities.characters.klant;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.UpdateExposer;
-import com.github.hanyaeger.api.entities.CompositeEntity;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.pastrypanic.PastryPanic;
 import com.github.hanyaeger.pastrypanic.items.Product;
-import com.github.hanyaeger.pastrypanic.scenes.GameScene;
-import javafx.scene.paint.Color;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +18,7 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
 
     private KlantCircle klantCircle;
     private KlantItem klantitem;
+    private KlantHitbox klantHitbox;
 
     public Klant(Coordinate2D initialLocation, Product product, boolean active, PastryPanic pastryPanic) {
         super(initialLocation);
@@ -28,6 +26,7 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
         geholpen = false;
         this.klantCircle = new KlantCircle(new Coordinate2D(0, 0));
         this.klantitem = new KlantItem(product);
+        this.klantHitbox = new KlantHitbox(new Coordinate2D(0-16, 0-250), 100, 64);
         begin = LocalDateTime.now();
         game = pastryPanic;
     }
@@ -36,6 +35,7 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
     public void setupEntities() {
         addEntity(klantCircle);
         addEntity(klantitem);
+        addEntity(klantHitbox);
     }
 
     public static double getStaticRadius() {
@@ -47,7 +47,6 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
             if (!geholpen) {
                 LocalDateTime now = LocalDateTime.now();
                 if (now.isAfter(begin.plusSeconds(30))) {
-                    System.out.println("goodjob");
                     begin = now;
                     if (getHappiness() <= 3) {
                         sethappiness(getHappiness() + 1);
