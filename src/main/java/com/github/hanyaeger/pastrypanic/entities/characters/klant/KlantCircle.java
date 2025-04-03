@@ -2,10 +2,11 @@ package com.github.hanyaeger.pastrypanic.entities.characters.klant;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.CircleEntity;
+import com.github.hanyaeger.api.entities.impl.DynamicCircleEntity;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class KlantCircle extends CircleEntity {
+public class KlantCircle extends DynamicCircleEntity {
     private final static int Radius = 32;
 
     public void setHappiness(int happiness) {
@@ -22,15 +23,24 @@ public class KlantCircle extends CircleEntity {
 
 
     public void klantHappiness() {
-        if (happiness == 0) {
-            setFill(Color.GREEN);
-        } else if (happiness == 1) {
-            setFill(Color.YELLOW);
-        } else if (happiness == 2) {
-            setFill(Color.BLUE);
-        } else if (happiness == 3) {
-            setFill(Color.RED);
+        switch (happiness) {
+            case 0:
+                setFill(Color.GREEN);
+                break;
+            case 1:
+                setFill(Color.YELLOW);
+                break;
+            case 2:
+                setFill(Color.BLUE);
+                break;
+            case 3:
+                setFill(Color.RED);
+                break;
         }
+    }
+
+    public int getHappiness() {
+        return happiness;
     }
 
 }

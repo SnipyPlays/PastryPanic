@@ -65,25 +65,27 @@ public class GameScene extends DynamicScene {
 
         //klanten
 
-        ArrayList<Product> producten  = productGenerator.getProducten();
+        ArrayList<Product> producten = productGenerator.getProducten();
         ArrayList<Product> dayProducts = new ArrayList<>();
         for (Product product : producten) {
-            if(dayCounter >= product.getUnlockDay()){
+            if (dayCounter >= product.getUnlockDay()) {
                 dayProducts.add(product);
             }
         }
 
-         Klant[] klanten = new Klant[8];
+        Klant[] klanten = new Klant[8];
         Random rand = new Random();
-         for(int i = 0; i < klanten.length; i++){
-             klanten[i] = new Klant(new Coordinate2D(160+i*128, getHeight()/2- Klant.getStaticRadius() * 4),
-                     dayProducts.get(rand.nextInt(dayProducts.size())),
-                     true);
-         }
+        for (int i = 0; i < klanten.length; i++) {
+            klanten[i] = new Klant(new Coordinate2D(160 + i * 128, getHeight() / 1.15),
+                    dayProducts.get(rand.nextInt(dayProducts.size())),
+                    true,
+                    game);
+        }
 
         for (Klant klant : klanten) {
-            klant.sethappiness(rand.nextInt(4));
             klant.klantHappiness();
+            klant.Visible();
+            klant.statusKlant();
             System.out.println(klant.getWantsProduct().naam);
             addEntity(klant);
         }
