@@ -18,7 +18,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GameScene extends DynamicScene {
+public class GameScene extends DynamicScene implements UpdateExposer{
     public int dayCounter = 1;
 
     PastryPanic game;
@@ -101,5 +101,17 @@ public class GameScene extends DynamicScene {
 
     public void removeInterface() {
         currentInterface.remove();
+    }
+
+    public void updatePunten() {
+        game.punten++;
+    }
+
+    @Override
+    public void explicitUpdate(long l) {
+        if (game.punten >= 5) { //punten op 5 gezet zodat winst laten zien kan worden
+            game.setActiveScene(3);
+
+        }
     }
 }

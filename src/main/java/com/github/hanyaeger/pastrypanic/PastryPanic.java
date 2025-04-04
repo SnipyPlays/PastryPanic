@@ -7,6 +7,8 @@ import com.github.hanyaeger.pastrypanic.scenes.*;
 
 public class PastryPanic extends YaegerGame {
 
+    public Integer punten = 0;
+
     public static void main(String[] args){
         launch(args);
     }
@@ -19,8 +21,8 @@ public class PastryPanic extends YaegerGame {
 
     @Override
     public void setupScenes() {
-        addScene(0, new GameScene(this));
-        addScene(1, new MainMenu(this));
+        addScene(0, new MainMenu(this));
+        addScene(1, new GameScene(this));
         addScene(2, new EndlessMode(this));
         addScene(3, new EndScene(this));
     }

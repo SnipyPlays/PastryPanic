@@ -28,14 +28,7 @@ public class EndScene extends StaticScene {
 
     @Override
     public void setupEntities() {
-        //main menu
-        var MainMenu = new SceneButton(
-                new Coordinate2D(getWidth()/2, getHeight()/2),
-                "Main Menu",
-                1,
-                game);
-        MainMenu.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        addEntity(MainMenu);
+
         //quitgame
         var quitButtonEnd = new QuitButton(
                 new Coordinate2D(getWidth() / 2, getHeight() / 6 * 4),
@@ -43,6 +36,7 @@ public class EndScene extends StaticScene {
                 game);
         quitButtonEnd.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(quitButtonEnd);
+
         //text
         var eindText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/5), "Eind Spel");
         eindText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
@@ -50,5 +44,12 @@ public class EndScene extends StaticScene {
         eindText.setFont(Font.font("Helvetica", FontWeight.BOLD, 200));
         eindText.setStrokeColor(Color.BLACK);
         addEntity(eindText);
+
+        var puntenText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/5 + 200), "Punten: " + game.punten);
+        puntenText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        puntenText.setFill(Color.WHITE);
+        puntenText.setFont(Font.font("Helvetica", FontWeight.BOLD, 200));
+        puntenText.setStrokeColor(Color.BLACK);
+        addEntity(puntenText);
     }
 }

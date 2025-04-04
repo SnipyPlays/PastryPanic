@@ -95,7 +95,7 @@ public class ProductGenerator {
         kaasCroissant.add(ingredientGenerator.getIngredient("kaas"));
         kaasCroissant.add(getProduct("croissant"));
         recepten.add(new Recept(stationGenerator.getStation("crafter"), kaasCroissant, "kaas croissant"));
-        producten.add(new Product("kaas croissant", "items/kaascroissant.png", getRecept("kaas croissant"), 1));
+        producten.add(new Product("kaas croissant", "items/kaascroissant.png", getRecept("kaas croissant"), 3));
 
         //chocoladecroissant
         ArrayList<Item> chocoladeCroissant = new ArrayList<>();
