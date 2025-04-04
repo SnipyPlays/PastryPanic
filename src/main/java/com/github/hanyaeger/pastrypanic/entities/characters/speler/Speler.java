@@ -18,7 +18,7 @@ import javafx.scene.input.KeyCode;
 import java.util.List;
 import java.util.Set;
 
-public class Speler extends DynamicCompositeEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, UpdateExposer {
+public class Speler extends DynamicCompositeEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
     private KeyCode lastkey;
 
     private PlayerSprite playerSprite;
@@ -206,19 +206,5 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
             }
         }
 
-    }
-
-    @Override
-    public void explicitUpdate(long l) {
-        reloadItems();
-    }
-
-    public void reloadItems() {
-        if (itemLinks != null) {
-            addEntity(itemLinks);
-        }
-        if (itemRechts != null) {
-            addEntity(itemRechts);
-        }
     }
 }
