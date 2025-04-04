@@ -29,7 +29,7 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
     private ProductGenerator productGenerator;
 
     private int playerSpeed;
-
+    //test
     private Item itemLinks;
     private Item itemRechts;
 
