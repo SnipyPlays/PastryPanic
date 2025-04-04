@@ -11,9 +11,11 @@ import com.github.hanyaeger.pastrypanic.entities.characters.speler.Speler;
 import com.github.hanyaeger.pastrypanic.items.Item;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.scenes.GameScene;
+import com.github.hanyaeger.pastrypanic.stations.CraftingStation;
 import com.github.hanyaeger.pastrypanic.stations.DeleteStation;
 import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.Table;
+import com.github.hanyaeger.pastrypanic.stations.UI.CraftingInterface;
 import com.github.hanyaeger.pastrypanic.stations.UI.StationInterface;
 import com.github.hanyaeger.pastrypanic.stations.UI.TableInterface;
 import javafx.scene.input.MouseButton;
@@ -66,8 +68,15 @@ public class PlayerVakje extends CompositeEntity implements MouseButtonPressedLi
                     }
                     game.spawnInterface(new TableInterface(location, speler, (Table) station, game));
                     stationInterface.remove();
-                } if (station instanceof DeleteStation) {
+                } else if (station instanceof DeleteStation) {
                     removePlayerItem();
+                } else if (station instanceof CraftingStation) {
+                    if (station.getItemList().size() < station.aantalVakjes) {
+                        station.addToItemList(item.naam);
+                        removePlayerItem();
+                    }
+                    game.spawnInterface(new CraftingInterface(location, (CraftingStation) station, speler, game));
+                    stationInterface.remove();
                 }
             }
 

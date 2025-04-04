@@ -16,4 +16,12 @@ public class Recept {
         this.naam = naam;
     }
 
+    public ArrayList<String> getIngredients() {
+        ArrayList<String> itemNamen = new ArrayList<>();
+        for (Item ingredient : ingredients) {
+            itemNamen.add(ingredient.naam);
+        }
+        return itemNamen;
+    }
+
 }

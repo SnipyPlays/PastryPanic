@@ -108,12 +108,14 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
                                 k.getklant().setGeholpen(true);
                                 itemLinks.remove();
                                 removeItem(0);
+                                gameScene.updatePunten();
                             }
                         } else if (itemRechts != null) {
                             if (itemRechts.naam == k.getklant().getWantsProduct().naam) {
                                 k.getklant().setGeholpen(true);
                                 itemRechts.remove();
                                 removeItem(1);
+                                gameScene.updatePunten();
                             }
                         }
                     }
