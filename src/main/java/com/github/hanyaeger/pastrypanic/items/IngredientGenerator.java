@@ -1,7 +1,5 @@
 package com.github.hanyaeger.pastrypanic.items;
 
-import org.checkerframework.checker.units.qual.A;
-
 import java.util.ArrayList;
 
 public class IngredientGenerator {
@@ -33,9 +31,5 @@ public class IngredientGenerator {
         return errorIngredient;
     }
 
-    public Ingredient createIngredient(String naam) {
-        String path = "items/" + naam + ".png";
-        return new Ingredient(naam, path);
-    }
 
 }

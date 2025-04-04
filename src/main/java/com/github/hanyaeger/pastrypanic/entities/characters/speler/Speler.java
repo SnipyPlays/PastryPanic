@@ -15,7 +15,6 @@ import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.Station.StationBounding;
 import javafx.scene.input.KeyCode;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -26,7 +25,6 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
     private PlayerHitbox playerHitbox;
     private PlayerStationHitbox playerStationHitbox;
 
-    private PastryPanic game;
     private GameScene gameScene;
     private ProductGenerator productGenerator;
 
@@ -37,10 +35,9 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
 
     private boolean interfaceOpen = false;
 
-    public Speler(String resource, Coordinate2D initialLocation, PastryPanic game, GameScene gameScene) {
+    public Speler(String resource, Coordinate2D initialLocation, GameScene gameScene) {
         super(initialLocation);
 
-        this.game = game;
         this.gameScene = gameScene;
         this.productGenerator = new ProductGenerator();
 

@@ -6,7 +6,6 @@ import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.hanyaeger.pastrypanic.PastryPanic;
 import com.github.hanyaeger.pastrypanic.entities.buttons.QuitButton;
-import com.github.hanyaeger.pastrypanic.entities.buttons.SceneButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;

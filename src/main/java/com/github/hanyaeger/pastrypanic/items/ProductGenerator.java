@@ -14,7 +14,6 @@ public class ProductGenerator {
     public ArrayList<Recept> tussenIngredients = new ArrayList<>();
     public Recept errorRecept = new Recept(stationGenerator.getStation("error"), new ArrayList<Item>(), "error");
     public ArrayList<Product> producten = new ArrayList<>();
-    public ArrayList<Item> tussenIngredienten = new ArrayList<>();
     public Product errorProduct = new Product("error", "errorPath", errorRecept, 0);
 
     public ProductGenerator() {
@@ -147,11 +146,6 @@ public class ProductGenerator {
 
     }
 
-
-    public ArrayList<Recept> getRecepten() {
-        return recepten;
-    }
-
     public Recept getRecept(String naam) {
         for (Recept recept : recepten) {
             if (naam == recept.naam) {
@@ -173,8 +167,6 @@ public class ProductGenerator {
     public ArrayList<Product> getProducten() {
         return producten;
     }
-
-    //public ArrayList<Product> getTussenIngredienten {return tussenIngredienten;}
 
     public Ingredient getTussenIngredient(String naam) {
         for (Recept recept : tussenIngredients) {

@@ -7,11 +7,6 @@ import javafx.scene.paint.Color;
 public class KlantCircle extends DynamicCircleEntity {
     private static final int Radius = 32;
 
-
-    public static int getfinalRadius(){
-        return Radius;
-    }
-
     public void setHappiness(int happiness) {
         this.happiness = happiness;
     }

@@ -44,11 +44,9 @@ public class GameScene extends DynamicScene implements UpdateExposer{
         for (Station station : stationGenerator.getStations()) {
             addEntity(station);
         }
-//        var oven = stationGenerator.getStation("oven");
-//        addEntity(oven);
 
         //bakker maken en toevoeging
-        var speler = new Speler("items/bakkertje.png", new Coordinate2D(100, 200), this.game, this);
+        var speler = new Speler("items/bakkertje.png", new Coordinate2D(100, 200), this);
         addEntity(speler);
 
         //collisionMuur delen maken
