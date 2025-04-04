@@ -58,6 +58,10 @@ public abstract class Station extends DynamicCompositeEntity {
         }
     }
 
+    public void resetItemList() {
+        itemList.clear();
+    }
+
     public String getNaam() {
         return naam;
     }

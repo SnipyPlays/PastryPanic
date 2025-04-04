@@ -33,7 +33,7 @@ public class StationGenerator {
         stations.add(spicerack);
 
         Station orderTable = new GiveStation("stations/besteltafel.png", new Coordinate2D(448, 80), "orderTable", 5);
-        orderTable.addToItemList("bloem");
+        orderTable.addToItemList("deeg");
         orderTable.addToItemList("vlees");
         orderTable.addToItemList("kaas");
         orderTable.addToItemList("chocolade");

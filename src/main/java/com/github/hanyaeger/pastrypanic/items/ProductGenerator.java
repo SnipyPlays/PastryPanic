@@ -14,6 +14,7 @@ public class ProductGenerator {
     public ArrayList<Recept> tussenIngredients = new ArrayList<>();
     public Recept errorRecept = new Recept(stationGenerator.getStation("error"), new ArrayList<Item>(), "error");
     public ArrayList<Product> producten = new ArrayList<>();
+    public ArrayList<Item> tussenIngredienten = new ArrayList<>();
     public Product errorProduct = new Product("error", "errorPath", errorRecept, 0);
 
     public ProductGenerator() {
@@ -22,7 +23,7 @@ public class ProductGenerator {
         ArrayList<Item> deeg = new ArrayList<>();
         deeg.add(ingredientGenerator.getIngredient("bloem"));
         deeg.add(ingredientGenerator.getIngredient("water"));
-        tussenIngredients.add(new Recept(stationGenerator.getStation("crafter"), deeg, "muffin"));
+        tussenIngredients.add(new Recept(stationGenerator.getStation("crafter"), deeg, "deeg"));
 
         //bladerdeeg
         ArrayList<Item> bladerdeeg = new ArrayList<>();
@@ -94,7 +95,7 @@ public class ProductGenerator {
         kaasCroissant.add(ingredientGenerator.getIngredient("kaas"));
         kaasCroissant.add(getProduct("croissant"));
         recepten.add(new Recept(stationGenerator.getStation("crafter"), kaasCroissant, "kaas croissant"));
-        producten.add(new Product("kaas croissant", "items/kaascroissant.png", getRecept("kaas croissant"), 3));
+        producten.add(new Product("kaas croissant", "items/kaascroissant.png", getRecept("kaas croissant"), 1));
 
         //chocoladecroissant
         ArrayList<Item> chocoladeCroissant = new ArrayList<>();
@@ -172,6 +173,8 @@ public class ProductGenerator {
     public ArrayList<Product> getProducten() {
         return producten;
     }
+
+    //public ArrayList<Product> getTussenIngredienten {return tussenIngredienten;}
 
     public Ingredient getTussenIngredient(String naam) {
         for (Recept recept : tussenIngredients) {

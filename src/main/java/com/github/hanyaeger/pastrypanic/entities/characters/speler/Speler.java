@@ -54,11 +54,11 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
 
         this.playerStationHitbox = new PlayerStationHitbox(newLocation);
 
-        this.itemLinks = productGenerator.createProduct("muffin");
+        this.itemLinks = productGenerator.createProduct("deeg");
         this.itemLinks.setAnchorLocationX(100);
         this.itemLinks.setAnchorLocationY(240);
 
-        this.itemRechts = productGenerator.createProduct("muffin");
+        this.itemRechts = productGenerator.createProduct("water");
         this.itemRechts.setAnchorLocationX(170);
         this.itemRechts.setAnchorLocationY(240);
 
