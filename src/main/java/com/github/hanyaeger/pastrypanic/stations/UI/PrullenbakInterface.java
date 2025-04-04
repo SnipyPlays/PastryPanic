@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class PrullenbakInterface extends StationInterface{
 
-    InterfaceBorder border;
-    ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
+    private InterfaceBorder border;
+    private ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
 
     public PrullenbakInterface(Coordinate2D initialLocation, Speler speler, GameScene game, Station station) {
         super(initialLocation);

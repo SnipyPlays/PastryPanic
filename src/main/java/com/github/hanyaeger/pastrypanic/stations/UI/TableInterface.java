@@ -13,9 +13,9 @@ import java.util.ArrayList;
 
 public class TableInterface extends StationInterface {
 
-    InterfaceBorder interfaceBorder;
-    ArrayList<ItemVakje> vakjes = new ArrayList<>();
-    ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
+    private InterfaceBorder interfaceBorder;
+    private ArrayList<ItemVakje> vakjes = new ArrayList<>();
+    private ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
 
     //bij spawn van table interface
     public TableInterface(Coordinate2D initialLocation, Speler speler, Table table, GameScene game) {

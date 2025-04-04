@@ -15,13 +15,13 @@ import java.util.ArrayList;
 
 public class CraftingInterface extends StationInterface{
 
-    InterfaceBorder border;
-    ArrayList<ItemVakje> vakjes = new ArrayList<>();
-    ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
-    ProductGenerator productGenerator = new ProductGenerator();
+    private InterfaceBorder border;
+    private ArrayList<ItemVakje> vakjes = new ArrayList<>();
+    private ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
+    private ProductGenerator productGenerator = new ProductGenerator();
     ArrayList<Product> producten;
     Item resultItem;
-    ResultVakje resultVakje;
+    private ResultVakje resultVakje;
 
     public CraftingInterface(Coordinate2D initialLocation, CraftingStation station, Speler speler, GameScene game) {
         super(initialLocation);

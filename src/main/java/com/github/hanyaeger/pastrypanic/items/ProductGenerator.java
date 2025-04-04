@@ -10,11 +10,11 @@ public class ProductGenerator {
     private StationGenerator stationGenerator = new StationGenerator();
     private IngredientGenerator ingredientGenerator = new IngredientGenerator();
 
-    public ArrayList<Recept> recepten = new ArrayList<>();
-    public ArrayList<Recept> tussenIngredients = new ArrayList<>();
-    public Recept errorRecept = new Recept(stationGenerator.getStation("error"), new ArrayList<Item>(), "error");
-    public ArrayList<Product> producten = new ArrayList<>();
-    public Product errorProduct = new Product("error", "errorPath", errorRecept, 0);
+    private ArrayList<Recept> recepten = new ArrayList<>();
+    private ArrayList<Recept> tussenIngredients = new ArrayList<>();
+    private Recept errorRecept = new Recept(stationGenerator.getStation("error"), new ArrayList<Item>(), "error");
+    private ArrayList<Product> producten = new ArrayList<>();
+    private Product errorProduct = new Product("error", "errorPath", errorRecept, 0);
 
     public ProductGenerator() {
 

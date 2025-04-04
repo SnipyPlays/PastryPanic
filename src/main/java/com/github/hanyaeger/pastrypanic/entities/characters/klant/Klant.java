@@ -38,10 +38,6 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
         addEntity(klantHitbox);
     }
 
-    public static double getStaticRadius() {
-        return Radius;
-    }
-
     public void statusKlant() {
         if (active) {
             if (!geholpen) {

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class Recept {
 
-    Station station;
-    ArrayList<Item> ingredients;
-    String naam;
+    private Station station;
+    private ArrayList<Item> ingredients;
+    public String naam;
 
     public Recept(Station station, ArrayList<Item> ingredients, String naam) {
         this.station = station;

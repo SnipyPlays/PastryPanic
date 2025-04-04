@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class IngredientGenerator {
 
-    ArrayList<Ingredient> ingredients = new ArrayList<>();
-    Ingredient errorIngredient = new Ingredient("error", "errorPath");
+    public ArrayList<Ingredient> ingredients = new ArrayList<>();
+    private Ingredient errorIngredient = new Ingredient("error", "errorPath");
 
     public IngredientGenerator() {
         ingredients.add(new Ingredient("suiker", "suikerPath"));

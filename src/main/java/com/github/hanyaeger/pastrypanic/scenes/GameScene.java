@@ -13,20 +13,19 @@ import com.github.hanyaeger.pastrypanic.stations.Station.Station;
 import com.github.hanyaeger.pastrypanic.stations.StationGenerator;
 import com.github.hanyaeger.pastrypanic.stations.CollisionMuur;
 import com.github.hanyaeger.pastrypanic.stations.UI.StationInterface;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class GameScene extends DynamicScene implements UpdateExposer{
-    public int dayCounter = 1;
+    private int dayCounter = 1;
 
-    PastryPanic game;
+    private PastryPanic game;
 
-    ProductGenerator productGenerator = new ProductGenerator();
-    StationGenerator stationGenerator = new StationGenerator();
+    private ProductGenerator productGenerator = new ProductGenerator();
+    private StationGenerator stationGenerator = new StationGenerator();
 
-    StationInterface currentInterface;
+    private StationInterface currentInterface;
 
     public GameScene(PastryPanic game) {
         this.game = game;

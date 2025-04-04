@@ -13,9 +13,9 @@ import java.util.ArrayList;
 
 public class SpicerackInterface extends StationInterface {
 
-    InterfaceBorder border;
-    ArrayList<ItemVakje> vakjes = new ArrayList<>();
-    ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
+    private InterfaceBorder border;
+    private ArrayList<ItemVakje> vakjes = new ArrayList<>();
+    private ArrayList<PlayerVakje> playerVakjes = new ArrayList<>();
 
     public SpicerackInterface(Coordinate2D location, Speler speler, GameScene game, GiveStation giveStation) {
         super(location);

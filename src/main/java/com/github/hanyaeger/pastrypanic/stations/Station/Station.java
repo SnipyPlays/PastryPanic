@@ -11,10 +11,10 @@ import java.util.ArrayList;
 public abstract class Station extends DynamicCompositeEntity {
 
     private String naam;
-    StationSprite sprite;
-    StationHitbox stationHitbox;
-    StationBounding stationBounding;
-    ArrayList<String> itemList = new ArrayList<>();
+    private StationSprite sprite;
+    private StationHitbox stationHitbox;
+    private StationBounding stationBounding;
+    private ArrayList<String> itemList = new ArrayList<>();
     public Integer aantalVakjes;
 
     public Station(String resource, Coordinate2D initialLocation, String naam) {

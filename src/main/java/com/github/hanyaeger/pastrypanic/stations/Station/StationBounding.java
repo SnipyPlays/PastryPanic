@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 
 public class StationBounding extends RectangleEntity implements Collider {
 
-    Station station;
+    private Station station;
 
     protected StationBounding(Coordinate2D initialLocation, Station station) {
         super(initialLocation);

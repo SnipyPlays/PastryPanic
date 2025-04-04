@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class StationGenerator {
 
-    ArrayList<Station> stations = new ArrayList<>();
-    Station errorStation = new CraftingStation("error", new Coordinate2D(0, 0), "error");
+    private ArrayList<Station> stations = new ArrayList<>();
+    private Station errorStation = new CraftingStation("error", new Coordinate2D(0, 0), "error");
 
     public StationGenerator() {
         Station oven = new CraftingStation("stations/oven.png", new Coordinate2D(64,80), "oven");

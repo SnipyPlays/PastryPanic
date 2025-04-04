@@ -20,30 +20,15 @@ import com.github.hanyaeger.pastrypanic.stations.UI.StationInterface;
 import com.github.hanyaeger.pastrypanic.stations.UI.TableInterface;
 import javafx.scene.input.MouseButton;
 
-public class PlayerVakje extends CompositeEntity implements MouseButtonPressedListener, MouseExitListener, MouseEnterListener, UpdateExposer {
-
-    ProductGenerator productGenerator = new ProductGenerator();
-    Vakje vakje;
-    Item item;
-    Coordinate2D location;
+public class PlayerVakje extends InteractVakje {
 
     Boolean opVakje = false;
-
-    Speler speler;
     int slot;
-    Station station;
-    StationInterface stationInterface;
-    GameScene game;
 
-    public PlayerVakje(Coordinate2D initialLocation, Station station, Speler speler, int slot, GameScene game, StationInterface stationInterface) {
-        super(initialLocation);
-        this.vakje = new Vakje(initialLocation);
-        this.speler = speler;
+    public PlayerVakje(Coordinate2D initialLocation, Station station, Speler speler, int slot, GameScene gameScene, StationInterface stationInterface) {
+        super(initialLocation, station, speler, slot, gameScene, stationInterface);
+
         this.slot = slot;
-        this.location = initialLocation;
-        this.station = station;
-        this.game = game;
-        this.stationInterface = stationInterface;
 
         loadItem();
 

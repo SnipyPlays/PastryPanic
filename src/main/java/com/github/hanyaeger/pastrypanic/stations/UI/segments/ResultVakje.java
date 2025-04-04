@@ -17,32 +17,24 @@ import com.github.hanyaeger.pastrypanic.stations.UI.StationInterface;
 import com.github.hanyaeger.pastrypanic.stations.UI.TableInterface;
 import javafx.scene.input.MouseButton;
 
-public class ResultVakje extends CompositeEntity implements MouseEnterListener, MouseExitListener, MouseButtonPressedListener {
+public class ResultVakje extends InteractVakje {
 
-    ProductGenerator productGenerator = new ProductGenerator();
-    Vakje vakje;
-    Item item;
-    Speler speler;
-    GameScene game;
-    Coordinate2D location;
-    Station station;
-    StationInterface stationInterface;
     Boolean onVakje = false;
 
     public ResultVakje(Coordinate2D initialLocation, Station station, Speler speler, GameScene gameScene, StationInterface stationInterface) {
-        super(initialLocation);
-        this.speler = speler;
-        this.vakje = new Vakje(initialLocation);
-        this.game = gameScene;
-        this.location = initialLocation;
-        this.station = station;
-        this.stationInterface = stationInterface;
+        super(initialLocation, station, speler, 0, gameScene, stationInterface);
+
 
         CraftingInterface craftingInterface = (CraftingInterface) stationInterface;
         this.item = craftingInterface.getResultItem();
 
     }
 
+
+    @Override
+    public void explicitUpdate(long l) {
+
+    }
 
     @Override
     protected void setupEntities() {

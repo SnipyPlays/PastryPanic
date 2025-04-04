@@ -9,7 +9,7 @@ import com.github.hanyaeger.pastrypanic.entities.buttons.SceneButton;
 
 public class MainMenu extends StaticScene {
 
-    PastryPanic game;
+    private PastryPanic game;
 
     public MainMenu(PastryPanic game) {
         this.game = game;

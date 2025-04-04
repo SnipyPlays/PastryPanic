@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 
 public class EndScene extends StaticScene {
 
-    PastryPanic game;
+    private PastryPanic game;
 
 
     public EndScene(PastryPanic game) {

@@ -23,27 +23,12 @@ import javafx.scene.input.MouseButton;
 
 import java.util.ArrayList;
 
-public class ItemVakje extends CompositeEntity implements MouseEnterListener, MouseExitListener, MouseButtonPressedListener, UpdateExposer {
-
-    ProductGenerator productGenerator = new ProductGenerator();
-    Vakje vakje;
-    Item item;
-    Speler speler;
-    GameScene game;
-    Coordinate2D location;
-    Station station;
-    StationInterface stationInterface;
+public class ItemVakje extends InteractVakje {
 
     Boolean opVakje = false;
 
     public ItemVakje(Coordinate2D initialLocation, Station station, Speler speler, Integer nummer, GameScene gameScene, StationInterface stationInterface) {
-        super(initialLocation);
-        this.speler = speler;
-        this.vakje = new Vakje(initialLocation);
-        this.game = gameScene;
-        this.location = initialLocation;
-        this.station = station;
-        this.stationInterface = stationInterface;
+        super(initialLocation, station, speler, nummer, gameScene, stationInterface);
 
         ArrayList<String> itemList = station.getItemList();
         if (itemList.size() > nummer) {
