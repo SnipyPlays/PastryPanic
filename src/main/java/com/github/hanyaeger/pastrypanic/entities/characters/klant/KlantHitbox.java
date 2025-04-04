@@ -9,12 +9,19 @@ import javafx.scene.paint.Color;
 import java.util.List;
 
 public class KlantHitbox extends RectangleEntity implements Collider {
-
-    protected KlantHitbox(Coordinate2D initialLocation, int width, int height) {
+    Klant klant;
+    protected KlantHitbox(Coordinate2D initialLocation, int width, int height, Klant klant) {
         super(initialLocation);
         setWidth(width);
         setHeight(height);
         setFill(Color.TRANSPARENT);
+        this.klant = klant;
     }
+
+    public Klant getklant() {
+        return klant;
+    }
+
+
 
 }

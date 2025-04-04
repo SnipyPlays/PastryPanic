@@ -89,7 +89,6 @@ public class GameScene extends DynamicScene {
             klant.klantHappiness();
             klant.Visible();
             klant.statusKlant();
-            System.out.println(klant.getWantsProduct().naam);
             addEntity(klant);
         }
 
@@ -102,6 +101,5 @@ public class GameScene extends DynamicScene {
 
     public void removeInterface() {
         currentInterface.remove();
-
     }
 }

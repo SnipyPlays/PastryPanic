@@ -7,6 +7,7 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.hanyaeger.pastrypanic.PastryPanic;
 import com.github.hanyaeger.pastrypanic.IBlocker;
+import com.github.hanyaeger.pastrypanic.entities.characters.klant.KlantHitbox;
 import com.github.hanyaeger.pastrypanic.items.Item;
 import com.github.hanyaeger.pastrypanic.items.ProductGenerator;
 import com.github.hanyaeger.pastrypanic.scenes.GameScene;
@@ -53,7 +54,7 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
 
         this.playerStationHitbox = new PlayerStationHitbox(newLocation);
 
-        this.itemLinks = productGenerator.createProduct("apple");
+        this.itemLinks = productGenerator.createProduct("muffin");
         this.itemLinks.setAnchorLocationX(100);
         this.itemLinks.setAnchorLocationY(240);
 
@@ -100,6 +101,22 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
                     interfaceOpen = true;
                     station.doStationAction(gameScene, this); //POLYMORFIE LETS GOOOOO
                     break;
+                } else if (c instanceof KlantHitbox k) {
+                    if (!k.getklant().getGeholpen()) {
+                        if (itemLinks != null) {
+                            if (itemLinks.naam == k.getklant().getWantsProduct().naam) {
+                                k.getklant().setGeholpen(true);
+                                itemLinks.remove();
+                                removeItem(0);
+                            }
+                        } else if (itemRechts != null) {
+                            if (itemRechts.naam == k.getklant().getWantsProduct().naam) {
+                                k.getklant().setGeholpen(true);
+                                itemRechts.remove();
+                                removeItem(1);
+                            }
+                        }
+                    }
                 } else {
                     System.out.println(c);
                 }
@@ -108,9 +125,9 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
             gameScene.removeInterface();
             interfaceOpen = false;
 
-        }else {
+        } else {
             setSpeed(0);
-            if(playerStationHitbox.getCollisionList() != null) {
+            if (playerStationHitbox.getCollisionList() != null) {
                 playerStationHitbox.resetCollisionList();
             }
         }
@@ -194,11 +211,6 @@ public class Speler extends DynamicCompositeEntity implements KeyListener, Scene
 
     @Override
     public void explicitUpdate(long l) {
-        if (this.itemLinks != null) {
-            System.out.println(this.itemLinks.naam);
-        } else {
-            System.out.println("null");
-        }
         reloadItems();
     }
 

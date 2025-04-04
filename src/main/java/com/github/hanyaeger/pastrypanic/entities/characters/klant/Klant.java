@@ -26,7 +26,7 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
         geholpen = false;
         this.klantCircle = new KlantCircle(new Coordinate2D(0, 0));
         this.klantitem = new KlantItem(product);
-        this.klantHitbox = new KlantHitbox(new Coordinate2D(0-16, 0-250), 100, 64);
+        this.klantHitbox = new KlantHitbox(new Coordinate2D(0-16, 0-250), 100, 64, this);
         begin = LocalDateTime.now();
         game = pastryPanic;
     }
@@ -61,10 +61,12 @@ public class Klant extends DynamicCompositeEntity implements UpdateExposer {
         }
     }
 
-    public void geholpen(Product product) {
-        if (klantitem.getItem() == product) {
-            geholpen = true;
-        }
+    public void setGeholpen(boolean geholpen) {
+            this.geholpen = geholpen;
+    }
+
+    public boolean getGeholpen(){
+        return geholpen;
     }
 
     public Product getWantsProduct() {
