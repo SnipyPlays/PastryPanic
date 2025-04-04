@@ -6,7 +6,7 @@ import javafx.scene.input.MouseButton;
 
 public class QuitButton extends Button{
 
-    PastryPanic game;
+    private PastryPanic game;
 
     public QuitButton(Coordinate2D initialLocation, String text, PastryPanic game) {
         super(initialLocation, text);

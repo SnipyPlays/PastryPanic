@@ -6,8 +6,8 @@ import javafx.scene.input.MouseButton;
 
 public class SceneButton extends Button{
 
-    int gekozenScene;
-    PastryPanic game;
+    private int gekozenScene;
+    private PastryPanic game;
 
     public SceneButton(Coordinate2D initialLocation, String text, Integer gekozenScene, PastryPanic game) {
         super(initialLocation, text);
